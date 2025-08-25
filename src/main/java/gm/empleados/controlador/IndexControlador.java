@@ -54,4 +54,15 @@ public class IndexControlador {
         return "editar";//mostrar editar.jsp
     }
 
+
+    @RequestMapping(value = "/editar", method = RequestMethod.POST)
+    public String editar (@ModelAttribute("empleadoForma") Empleado empleado){
+        logger.info("Empleado a guardar (editar): " + empleado);
+        empleadoServicio.guardarEmpleado(empleado);
+        return "redirect:/"; //redirigimos al controlador "/"
+
+
+
+    }
+
 }
