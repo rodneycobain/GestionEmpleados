@@ -60,7 +60,15 @@ public class IndexControlador {
         logger.info("Empleado a guardar (editar): " + empleado);
         empleadoServicio.guardarEmpleado(empleado);
         return "redirect:/"; //redirigimos al controlador "/"
+    }
 
+
+    @RequestMapping(value = "/eliminar", method = RequestMethod.GET)
+    public String eliminar(@RequestParam int idEmpleado){
+        Empleado empleado = new Empleado();
+        empleado.setIdEmpleado(idEmpleado);
+        empleadoServicio.eliminarEmpleado(empleado);
+        return "redirect:/";
 
 
     }
